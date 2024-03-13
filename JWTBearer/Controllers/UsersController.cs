@@ -55,7 +55,7 @@ namespace JWTBearer.Controllers
       return Ok("ok");
     }
 
-    [Authorize(Roles = "manager")]
+    [Authorize(Roles = "manager, admin")]
     [HttpGet("subscribe-process")]
     public IActionResult SubscribeProcess()
     {
