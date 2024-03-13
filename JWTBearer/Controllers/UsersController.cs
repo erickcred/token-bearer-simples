@@ -1,5 +1,6 @@
 using JWTBearer.Models;
 using JWTBearer.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JWTBearer.Controllers
@@ -46,6 +47,22 @@ namespace JWTBearer.Controllers
       _userService.UpdateUser(userModel);
       return Ok("User Updated successfully!");
     }
+
+    [Authorize(Roles = "admin")]
+    [HttpGet("subscribe-certificate")]
+    public IActionResult SubscribeCertificate()
+    {
+      return Ok("ok");
+    }
+
+    [Authorize(Roles = "manager")]
+    [HttpGet("subscribe-process")]
+    public IActionResult SubscribeProcess()
+    {
+      return Ok("ok");
+    }
+
+
 
   }
 }
